@@ -18,11 +18,11 @@ for key,val in dram_manager.data[args.type].items():
     if 'box' in val:
         box=np.array(val['box']*transrole,dtype=np.int32)
         font_scale=utils.get_optimal_font_scale(box[1][0]-box[0][0],str(key),cv2.FONT_HERSHEY_PLAIN)
-        cv2.putText(test, str(key), box[0]-[0,5], cv2.FONT_HERSHEY_PLAIN,font_scale, (0, 0, 255), 2, cv2.LINE_AA)
-        cv2.rectangle(test,box[0],box[1],(0,0,255),3)
+        cv2.putText(test, str(key), box[0]-[0,5], cv2.FONT_HERSHEY_PLAIN,font_scale, (0, 255, 0), 2, cv2.LINE_AA)
+        cv2.rectangle(test,box[0],box[1],(0,255,0),3)
     else:
         point=np.array(val['point']*transrole,dtype=np.int32)
-        cv2.putText(test, str(key), point-[10,15], cv2.FONT_HERSHEY_PLAIN, 2 , (0, 0, 255), 2, cv2.LINE_AA)
+        cv2.putText(test, str(key), point-[10,15], cv2.FONT_HERSHEY_PLAIN, 1 , (0, 0, 255), 2, cv2.LINE_AA)
         cv2.circle(test,point,5,(0,0,255),3)
 
 cv2.namedWindow('image',cv2.WINDOW_NORMAL)
