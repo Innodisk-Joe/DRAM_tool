@@ -12,8 +12,8 @@ for row in utils.Initialization_config(args.configpath,f'PATH'):
         csv_path=row[1]
 
 dram_manager=DRAM.DRAM_alignment(csv_path)
-transrole=np.array([40,40])
-test=np.zeros([dram_manager.height*40,dram_manager.width*40,3],dtype=np.uint8)
+transrole=np.array([4024/dram_manager.width,1866/dram_manager.height])
+test=np.zeros([1866,4024,3],dtype=np.uint8)
 for key,val in dram_manager.data[args.type].items():
     if 'box' in val:
         box=np.array(val['box']*transrole,dtype=np.int32)
